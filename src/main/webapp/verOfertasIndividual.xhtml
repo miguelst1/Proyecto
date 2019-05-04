@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+</style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginEmpresa}" />
+</h:head>
+<h:body>
+    <ui:include src="plantillaMenuEmpresa.xhtml" />
+    
+    <h:form id="form">
+    	<div class="ui-g">
+    		<div class="ui-g-1"></div>
+    		<div class="ui-g-10">
+    			<p:dataView var="ofertas" value="#{ofertaIndividualBean.ofertasIndividual}" rows="10" paginator="true" rowsPerPageTemplate="6,12,16"
+	                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+	                gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+	 
+			        <p:dataViewGridItem>
+			            <p:panel header="#{ofertas.idIndividual}" style="text-align:center">
+			                <h:panelGrid columns="1" style="width:100%">
+			                    <p:graphicImage name="#"/> 
+			 
+			                    <h:outputText value="#{ofertas.idIndividual}" />
+			 
+			                    <p:commandLink title="View Detail">
+			                        <h:outputText styleClass="ui-icon-trash" style="margin:0 auto;" />
+			                        <f:setPropertyActionListener value="#{ofertas}" target="#{ofertaInvidiaulBean.filtroOfertas}" />
+			                    </p:commandLink>
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:dataViewGridItem>
+			 
+			        <p:dataViewListItem>
+			            <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
+			                <p:graphicImage name="#" /> 
+			 
+			                <p:outputPanel>
+			                    <h:panelGrid columns="2" cellpadding="5">
+			                        <h:outputText value="Candidato:" />
+			                        <h:outputText value="#{ofertas.idIndividual}" style="font-weight: bold"/>
+			 
+			                        <h:outputText value="Lenguaje:" />
+			                        <h:outputText value="#{ofertas.lenguaje}" style="font-weight: bold"/>
+			 
+			                        <h:outputText value="Nivel:" />
+			                        <h:outputText value="#{ofertas.nivel}" style="font-weight: bold"/>
+			                    </h:panelGrid>
+			                    <p:separator />
+			                </p:outputPanel>
+			 
+			                <p:commandLink title="View Detail">
+			                    <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" />
+			                    <f:setPropertyActionListener value="#{ofertas}" target="#{ofertaIndividualBean.filtroOfertas}" />
+			                </p:commandLink>
+			            </h:panelGrid>
+			        </p:dataViewListItem>
+			    </p:dataView>
+    		</div>
+    		<div class="ui-g-1"></div>
+    	</div>
+	</h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+</h:body>
+</html>

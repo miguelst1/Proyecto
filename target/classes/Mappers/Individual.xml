@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.proyecto.mapper.IndividualMapper">
+	
+	<select id="getIndividual" resultMap="individualRM">
+		  SELECT 
+	          idIndividual,
+	          nombre,
+	          apellido1,
+	          apellido2,
+	          edad,
+	          ciudad,
+	          provincia,
+	          telefono,
+	          email
+	       FROM individual
+		   WHERE idIndividual = #{idIndividual}
+	</select>
+	
+	<select id="getIndividuales" resultType="string">
+		SELECT 
+          idIndividual,
+          nombre,
+          apellido1,
+          apellido2,
+          edad,
+          ciudad,
+          provincia,
+          telefono,
+          email
+       FROM individual
+	</select>
+	
+	<select id="getLogin" resultMap="credenciales">
+		SELECT
+		  idIndividual,
+          usuario,
+          password
+       FROM individual
+	</select>
+	
+	<insert id="insertIndividual">
+		INSERT INTO individual (idIndividual, nombre, apellido1, apellido2, edad, ciudad, provincia, telefono, email, usuario, password) 
+		VALUES (#{individual.idIndividual},
+		   #{individual.nombre},
+		   #{individual.apellido1},
+		   #{individual.apellido2},
+		   #{individual.edad},
+		   #{individual.ciudad},
+		   #{individual.provincia},
+		   #{individual.telefono},
+		   #{individual.email},
+		   #{individual.usuario},
+		   #{individual.password})
+	</insert>
+	
+	<update id="updateIndividual">
+		UPDATE individual SET nombre = #{individual.nombre}, apellido1 = #{individual.apellido1}, apellido2 = #{individual.apellido2}, edad = #{individual.edad}, ciudad = #{individual.ciudad}, provincia = #{individual.provincia}, telefono = #{individual.telefono}, email = #{individual.email}, usuario = #{individual.usuario}, password = #{individual.password} WHERE idIndividual = #{individual.idIndividual}
+	</update>
+	
+	<delete id="deleteIndividual">
+		DELETE FROM individual WHERE idIndividual = #{idIndividual}
+	</delete>
+	
+	<resultMap id="individualRM" type="com.proyecto.modelo.Individual">
+		<constructor>
+			<idArg column="idIndividual" javaType="integer"/>
+			<arg column="nombre" javaType="java.lang.String"/>
+			<arg column="apellido1" javaType="java.lang.String"/>
+			<arg column="apellido2" javaType="java.lang.String"/>
+			<arg column="edad" javaType="integer"/>
+			<arg column="ciudad" javaType="java.lang.String"/>
+			<arg column="provincia" javaType="java.lang.String"/>
+			<arg column="telefono" javaType="integer"/>
+			<arg column="email" javaType="java.lang.String"/>
+		</constructor>
+	</resultMap>
+	
+	<resultMap id="credenciales" type="com.proyecto.modelo.Individual">
+			<result property="idIndividual" column="idIndividual" javaType="integer"/>
+			<result property="usuario" column="usuario" javaType="java.lang.String"/>
+			<result property="password" column="password" javaType="java.lang.String"/>
+	</resultMap>
+</mapper>

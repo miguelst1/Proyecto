@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+    
+    .ancho {
+    	width: 100%;
+    }
+</style>
+</h:head>
+<h:body>
+	
+    <ui:include src="plantillaMenuIndividual.xhtml" />
+    
+    <h:form>
+    	<p:panel id="perfil" header="Modificar Cuenta"
+					style="width: 600px; margin: 0 auto;">
+			<div class="ui-g">
+		    	<div class="ui-g-5">
+		    		<p:outputLabel value="Nombre" for="nombre"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-5">
+		    		<p:outputLabel value="Email" for="email"></p:outputLabel>
+		    	</div>
+		    </div>
+	    	<div class="ui-g">
+		    	<div class="ui-g-3">
+		    		<p:inputText id="nombre" value="#{empresaBean.empresa.nombre}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-3">
+		    		<p:inputText id="email" value="#{empresaBean.empresa.email}" styleClass="ancho"/>
+		    	</div>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-5">
+		    		<p:outputLabel value="Dirección" for="direccion"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-4">
+		    		<p:outputLabel value="Teléfono" for="telefono"></p:outputLabel>
+		    	</div>
+		    </div>
+	    	<div class="ui-g">
+		    	<div class="ui-g-5">
+		    		<p:inputText id="direccion" value="#{empresaBean.empresa.direccion}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-4">
+		    		<p:inputText id="telefono" value="#{empresaBean.empresa.telefono}" styleClass="ancho"/>
+		    	</div>
+		    </div>
+		    
+		    <p:commandButton id="modificar" name="modificar" value="Modificar" action="#{empresaBean.updateEmpresa}" ></p:commandButton>
+		</p:panel>
+	    
+    </h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+    
+</h:body>
+</html>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+    
+    .ancho {
+    	width: 100%;
+    }
+</style>
+</h:head>
+<h:body>
+	
+    <h:form id="loginForm">
+        <p:panel id="registrarse" header="Crear Cuenta"
+					style="width: 600px; margin: 0 auto;">
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h3>Datos de la Empresa</h3>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>					
+					
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="nombre" value="Nombre: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="nombre" value="#{empresaBean.empresa.nombre}" required="true" styleClass="ancho"/>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="email" value="Email: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="email" value="#{empresaBean.empresa.email}" required="true" styleClass="ancho"/>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="direccion" value="Dirección: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="direccion" value="#{empresaBean.empresa.direccion}" required="true" styleClass="ancho"/>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="telefono" value="Teléfono: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="telefono" value="#{empresaBean.empresa.telefono}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h3>Datos de la cuenta</h3>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="usuario" value="Usuario: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="usuario" value="#{empresaBean.empresa.usuario}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="password" value="Contraseña: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="password" value="#{empresaBean.empresa.password}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<h:panelGrid columns="1" cellpadding="10" width="100%" >
+				<p:commandButton id="loginButton" action="#{empresaBean.registrarse}"
+								value="Crear Cuenta" update="loginForm" ajax="true" style="float: right;">
+				</p:commandButton>			
+			</h:panelGrid>
+	        
+	 	</p:panel>
+	 
+	</h:form>
+    
+</h:body>
+</html>

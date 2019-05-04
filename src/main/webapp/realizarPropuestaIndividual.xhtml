@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+</style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginIndividual}" />
+</h:head>
+<h:body>
+    <ui:include src="plantillaMenuIndividual.xhtml" />
+    
+    <h:form>
+    	<div class="ui-g">
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
+	    		<p:inputText id="lenguaje" value="#{ofertaIndividualBean.ofertaIndividual.lenguaje}"/>
+	    	</div>
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Nivel" for="nivel"></p:outputLabel>
+	    		<p:inputText id="nivel" value="#{ofertaIndividualBean.ofertaIndividual.nivel}"/>
+	    	</div>
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
+	    		<p:inputText id="experiencia" value="#{ofertaIndividualBean.ofertaIndividual.experiencia}"/>
+	    	</div>
+	    </div>
+	    
+	    <div class="ui-g">
+	    	<div class="ui-g-12">
+	    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
+	    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaIndividualBean.ofertaIndividual.descripcion}"/>
+	    	</div>
+	    </div>
+	    
+	    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaIndividualBean.insertOfertaIndividual}" ></p:commandButton>
+    </h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+</h:body>
+</html>

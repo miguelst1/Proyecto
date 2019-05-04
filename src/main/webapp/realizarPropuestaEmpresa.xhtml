@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+</style>
+</h:head>
+<h:body>
+    <ui:include src="plantillaMenuEmpresa.xhtml" />
+    
+    <h:form>
+    	<div class="ui-g">
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
+	    		<p:inputText id="lenguaje" value="#{ofertaEmpresaBean.ofertaEmpresa.lenguaje}"/>
+	    	</div>
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Sueldo" for="sueldo"></p:outputLabel>
+	    		<p:inputText id="sueldo" value="#{ofertaEmpresaBean.ofertaEmpresa.sueldo}"/>
+	    	</div>
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
+	    		<p:inputText id="experiencia" value="#{ofertaEmpresaBean.ofertaEmpresa.experiencia}"/>
+	    	</div>
+	    	<div class="ui-g-3">
+	    		<p:outputLabel value="Horario" for="horario"></p:outputLabel>
+	    		<p:inputText id="horario" value="#{ofertaEmpresaBean.ofertaEmpresa.horario}"/>
+	    	</div>
+	    </div>
+	    
+	    <div class="ui-g">
+	    	<div class="ui-g-6">
+	    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
+	    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaEmpresaBean.ofertaEmpresa.descripcion}"/>
+	    	</div>
+	    </div>
+	    
+	    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaEmpresaBean.insertOfertaEmpresa}" ></p:commandButton>
+    </h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+</h:body>
+</html>

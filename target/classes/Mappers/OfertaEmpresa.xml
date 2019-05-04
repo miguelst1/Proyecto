@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.proyecto.mapper.OfertaEmpresaMapper">
+	
+	<select id="getOfertaEmpresa" resultMap="ofertaEmpresaRM">
+		  SELECT 
+	          idEmpresa,
+	          lenguaje,
+	          descripcion,
+	          sueldo,
+	          experiencia,
+	          horario
+	       FROM ofertaempresa
+		   WHERE idEmpresa = #{idEmpresa} AND lenguaje = #{lenguaje}
+	</select>
+	
+	<select id="getOfertasEmpresa" resultMap="ofertasEmpresaRM">
+		SELECT 
+          idEmpresa,
+          lenguaje,
+          descripcion,
+          sueldo,
+          experiencia,
+          horario
+       FROM ofertaempresa
+	</select>
+	
+	<insert id="insertOfertaEmpresa">
+		INSERT INTO ofertaempresa (idEmpresa, lenguaje, descripcion, sueldo, experiencia, horario) 
+		VALUES (#{idEmpresa},
+		   #{ofertaEmpresa.lenguaje},
+		   #{ofertaEmpresa.descripcion},
+		   #{ofertaEmpresa.sueldo},
+		   #{ofertaEmpresa.experiencia},
+		   #{ofertaEmpresa.horario})
+	</insert>
+	
+	<update id="updateOfertaEmpresa">
+		UPDATE ofertaempresa SET lenguaje = #{ofertaEmpresa.lenguaje}, descripcion = #{ofertaEmpresa.descripcion}, sueldo = #{ofertaEmpresa.sueldo}, experiencia = #{ofertaEmpresa.experiencia}, horario = #{ofertaEmpresa.horario} WHERE idEmpresa = #{ofertaEmpresa.idEmpresa} AND lenguaje = #{ofertaEmpresa.lenguaje}
+	</update>
+	
+	<delete id="deleteOfertaEmpresa">
+		DELETE FROM ofertaempresa WHERE idEmpresa= #{idEmpresa} AND lenguaje = #{lenguaje}
+	</delete>
+	
+	<resultMap id="ofertaEmpresaRM" type="com.proyecto.modelo.OfertaEmpresa">
+		<constructor>
+			<idArg column="idEmpresa" javaType="integer"/>
+			<idArg column="lenguaje" javaType="java.lang.String"/>
+			<arg column="descripcion" javaType="java.lang.String"/>
+			<arg column="sueldo" javaType="integer"/>
+			<arg column="experiencia" javaType="integer"/>
+			<arg column="horario" javaType="java.lang.String"/>
+		</constructor>
+	</resultMap>
+	
+	<resultMap id="ofertasEmpresaRM" type="com.proyecto.modelo.OfertaEmpresa">
+			<id property="idEmpresa" column="idEmpresa" javaType="integer"/>
+			<id property="lenguaje" column="lenguaje" javaType="java.lang.String"/>
+			<result property="descripcion" column="descripcion" javaType="java.lang.String"/>
+			<result property="sueldo" column="sueldo" javaType="integer"/>
+			<result property="experiencia" column="experiencia" javaType="integer"/>
+			<result property="horario" column="horario" javaType="java.lang.String"/>
+	</resultMap>
+</mapper>

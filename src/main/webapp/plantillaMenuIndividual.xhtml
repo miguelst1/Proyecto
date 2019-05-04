@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+</style>
+</h:head>
+<h:body>
+	<ui:composition>
+        <h:form>
+			<p:growl id="messages" />
+	
+			<p:menubar>
+				<p:submenu label="Mis Datos">
+					<p:menuitem value="Ver mi Perfil" url="proyectoPerfilIndividual.xhtml" />
+					<p:separator />
+					<p:menuitem value="Cerrar Sesión" action="#{individualBean.cerrarSesion}"/>
+				</p:submenu>
+	
+				<p:submenu label="Ofertas de Trabajo">
+					<p:menuitem value="Ver Ofertas de Trabajo" url="verOfertasEmpresa.xhtml" />
+				</p:submenu>
+	
+				<p:submenu label="Propuesta">
+					<p:menuitem value="Realizar Nueva Propuesta" url="realizarPropuestaIndividual.xhtml" />
+					<p:menuitem value="Ver mis Propuestas" url="#" />
+				</p:submenu>
+	
+				<f:facet name="options">
+					<p:inputText style="margin:1px 10px 1px 1px;" placeholder="Buscar" />
+					<p:commandButton type="button" value="Buscar" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+	</ui:composition>
+    
+</h:body>
+</html>
