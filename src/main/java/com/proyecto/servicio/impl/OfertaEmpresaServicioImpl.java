@@ -46,4 +46,9 @@ public class OfertaEmpresaServicioImpl implements OfertaEmpresaServicio {
 	public void deleteOfertaEmpresa(int idEmpresa, String lenguaje) {
 		repositorio.deleteOfertaEmpresa(idEmpresa, lenguaje);
 	}
+
+	@Override
+	public List<OfertaEmpresa> getOfertasEmpresaPorEmpresa(int idEmpresa) {
+		return repositorio.getOfertasEmpresaPorEmpresa(idEmpresa);
+	}
 }

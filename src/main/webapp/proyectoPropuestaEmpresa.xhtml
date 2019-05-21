@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+    
+    .ancho {
+    	width: 100%;
+    }
+</style>
+</h:head>
+<h:body>
+	
+    <ui:include src="plantillaMenuIndividual.xhtml" />
+    
+    <h:form>
+    	<p:panel id="propuesta" header="Propuesta"
+					style="width: 70%; margin: 0 auto;">
+					<h5>Tecnologías necesarias</h5>
+					<h:outputText value="a"></h:outputText>
+					
+					<h5>Experiencia mínima</h5>
+					<h:outputText value="2"></h:outputText>
+					
+					<h5>Sueldo estimado</h5>
+					<h:outputText value="2000 €"></h:outputText>
+					
+					<h5>Horario</h5>
+					<h:outputText value="20:30 - 21:30"></h:outputText>
+					
+					<h5>Descripción</h5>
+					<h:outputText value="texto largo"></h:outputText>
+					
+					<p:commandButton value="Aceptar Propuesta" action="#{ofertaEmpresaBean.aceptar}"></p:commandButton>
+		</p:panel>
+	    
+    </h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+    
+</h:body>
+</html>

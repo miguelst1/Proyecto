@@ -47,4 +47,9 @@ public class OfertaIndividualRepositorioImpl implements OfertaIndividualReposito
 		mapper.deleteOfertaIndividual(idIndividual, lenguaje);
 	}
 
+	@Override
+	public List<OfertaIndividual> getOfertasIndividualPorIndividual(int idIndividual) {
+		return mapper.getOfertasIndividualPorIndividual(idIndividual);
+	}
+
 }

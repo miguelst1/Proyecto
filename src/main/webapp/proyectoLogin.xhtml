@@ -23,6 +23,7 @@
 		<p:growl id="msg" showDetail="true" life="4000" />
 		
 		<p:tabView style="width: 50%; margin: 0 auto; margin-top: 3%;">
+			<p:messages autoUpdate="true" for="login" id="messages" showDetail="true" closable="true"/>
         	<p:tab title="Usuario">
         		<h:form id="loginForm">
 	        		<p:panel id="loginPnl" header="Login Usuario"
@@ -34,13 +35,13 @@
 							<h:outputText value="Password" />
 							<p:password id="password" value="#{individualBean.individual.password}"
 								feedback="false"></p:password>
-							<p:message for="password"></p:message>
 						</h:panelGrid>
 						<h:panelGrid columns="1" cellpadding="10" width="100%">
 							<p:commandButton id="loginButton" action="#{individualBean.comprobarLogin}"
 								value="Login" update="loginForm" ajax="true" style="float: right;">
 							</p:commandButton>
 						</h:panelGrid>
+						<p:messages autoUpdate="true" for="login" id="messages" showDetail="true" closable="true"/>
 						<h:panelGrid columns="1" cellpadding="10" width="100%">
 							<h:outputText value="¿Todavía no tienes cuenta?" />
 							<p:link value="Registrate" outcome="proyectoRegistrarseIndividual.xhtml"/>
@@ -59,7 +60,6 @@
 							<h:outputText value="Password" />
 							<p:password id="password2" value="#{empresaBean.empresa.password}"
 								feedback="false"></p:password>
-							<p:message for="password2"></p:message>
 						</h:panelGrid>
 						<h:panelGrid columns="1" cellpadding="10" width="100%">
 							<p:commandButton id="loginButton2" action="#{empresaBean.comprobarLogin}"

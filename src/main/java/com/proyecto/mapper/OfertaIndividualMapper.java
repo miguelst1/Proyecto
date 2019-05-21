@@ -23,5 +23,8 @@ public interface OfertaIndividualMapper {
 	public List<OfertaIndividual> getOfertasIndividual();
 
 	@Transactional
-	public void deleteOfertaIndividual(int idIndividual, String lenguaje);
+	public List<OfertaIndividual> getOfertasIndividualPorIndividual(@Param("idIndividual") int idIndividual);
+
+	@Transactional
+	public void deleteOfertaIndividual(@Param("idIndividual") int idIndividual, @Param("lenguaje") String lenguaje);
 }

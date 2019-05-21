@@ -25,6 +25,18 @@
        FROM ofertaempresa
 	</select>
 	
+	<select id="getOfertasEmpresaPorEmpresa" resultMap="ofertasEmpresaRM">
+		SELECT 
+          idEmpresa,
+          lenguaje,
+          descripcion,
+          sueldo,
+          experiencia,
+          horario
+       FROM ofertaempresa
+       WHERE idEmpresa = #{idEmpresa}
+	</select>
+	
 	<insert id="insertOfertaEmpresa">
 		INSERT INTO ofertaempresa (idEmpresa, lenguaje, descripcion, sueldo, experiencia, horario) 
 		VALUES (#{idEmpresa},

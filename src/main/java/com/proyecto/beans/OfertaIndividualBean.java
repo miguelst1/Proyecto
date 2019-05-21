@@ -25,18 +25,26 @@ import lombok.Setter;
 @Setter
 public class OfertaIndividualBean {
 
+	private Individual individual;
+
 	private OfertaIndividual ofertaIndividual;
 
 	private List<OfertaIndividual> ofertasIndividual;
 
+	private List<OfertaIndividual> ofertasIndividualPorId;
+
 	private List<OfertaIndividual> filtroOfertas;
+
+	private OfertaIndividual ofertaSeleccionada;
 
 	@Autowired
 	private OfertaIndividualServicio servicio;
 
 	public OfertaIndividualBean() {
 		this.ofertaIndividual = new OfertaIndividual();
+		this.ofertasIndividualPorId = new ArrayList<OfertaIndividual>();
 		this.filtroOfertas = new ArrayList<OfertaIndividual>();
+		this.ofertaSeleccionada = new OfertaIndividual();
 	}
 
 	@PostConstruct
@@ -45,9 +53,22 @@ public class OfertaIndividualBean {
 	}
 
 	public void insertOfertaIndividual() {
-		Individual individual = (Individual) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-				.get("usuario");
-
+		individual = (Individual) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 		this.servicio.insertOfertaIndividual(this.ofertaIndividual, individual.getIdIndividual());
+	}
+
+	public void obtenerOfertasIndividualPorId() {
+		individual = (Individual) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+		this.ofertasIndividualPorId = this.servicio.getOfertasIndividualPorIndividual(individual.getIdIndividual());
+	}
+
+	public void aceptar() {
+		this.servicio.deleteOfertaIndividual(this.ofertaSeleccionada.getIdIndividual(),
+				this.ofertaSeleccionada.getLenguaje());
+	}
+
+	public void botonAceptar() {
+		aceptar();
+		init();
 	}
 }

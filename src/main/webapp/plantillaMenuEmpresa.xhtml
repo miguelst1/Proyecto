@@ -23,7 +23,7 @@
 				<p:submenu label="Mis Datos">
 					<p:menuitem value="Ver mi Perfil" url="#" />
 					<p:separator />
-					<p:menuitem value="Cerrar Sesión" action="#{individualEmpresa.cerrarSesion}"/>
+					<p:menuitem value="Cerrar Sesión" action="#{empresaBean.cerrarSesion}"/>
 				</p:submenu>
 	
 				<p:submenu label="Candidatos">
@@ -32,7 +32,7 @@
 	
 				<p:submenu label="Propuesta">
 					<p:menuitem value="Realizar Nueva Propuesta" url="realizarPropuestaEmpresa.xhtml" />
-					<p:menuitem value="Ver mis Propuestas" url="#" />
+					<p:menuitem value="Ver mis Propuestas" url="verMisPropuestasEmpresa.xhtml" actionListener="#{ofertaEmpresaBean.getOfertasEmpresaPorId}"/>
 				</p:submenu>
 	
 				<f:facet name="options">

@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.proyecto.modelo.Individual;
+import com.proyecto.modelo.Empresa;
 import com.proyecto.modelo.OfertaEmpresa;
 import com.proyecto.servicio.OfertaEmpresaServicio;
 
@@ -26,6 +26,8 @@ import lombok.Setter;
 @Setter
 public class OfertaEmpresaBean {
 
+	private Empresa empresa;
+
 	private OfertaEmpresa ofertaEmpresa;
 
 	@Autowired
@@ -34,6 +36,10 @@ public class OfertaEmpresaBean {
 	private List<OfertaEmpresa> filtroOfertas;
 
 	private List<OfertaEmpresa> ofertasEmpresa;
+
+	public List<OfertaEmpresa> ofertasEmpresaPorId;
+
+	private OfertaEmpresa ofertaSeleccionada;
 
 	public OfertaEmpresaBean() {
 		this.ofertaEmpresa = new OfertaEmpresa();
@@ -46,9 +52,22 @@ public class OfertaEmpresaBean {
 	}
 
 	public void insertOfertaEmpresa() throws IOException {
-		Individual individual = (Individual) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-				.get("usuario");
+		empresa = (Empresa) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("empresa");
+		this.servicio.insertOfertaEmpresa(this.ofertaEmpresa, this.empresa.getIdEmpresa());
+	}
 
-		this.servicio.insertOfertaEmpresa(this.ofertaEmpresa, individual.getIdIndividual());
+	public void getOfertasEmpresaPorId() {
+		empresa = (Empresa) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("empresa");
+		this.ofertasEmpresaPorId = this.servicio.getOfertasEmpresaPorEmpresa(empresa.getIdEmpresa());
+	}
+
+	public void aceptar() {
+		this.servicio.deleteOfertaEmpresa(this.ofertaSeleccionada.getIdEmpresa(),
+				this.ofertaSeleccionada.getLenguaje());
+	}
+
+	public void botonAceptar() {
+		aceptar();
+		init();
 	}
 }

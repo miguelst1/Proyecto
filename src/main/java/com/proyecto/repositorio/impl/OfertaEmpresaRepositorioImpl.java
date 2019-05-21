@@ -47,4 +47,9 @@ public class OfertaEmpresaRepositorioImpl implements OfertaEmpresaRepositorio {
 		mapper.deleteOfertaEmpresa(idEmpresa, lenguaje);
 	}
 
+	@Override
+	public List<OfertaEmpresa> getOfertasEmpresaPorEmpresa(int idEmpresa) {
+		return mapper.getOfertasEmpresaPorEmpresa(idEmpresa);
+	}
+
 }

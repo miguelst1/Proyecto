@@ -46,4 +46,9 @@ public class OfertaIndividualServicioImpl implements OfertaIndividualServicio {
 	public void deleteOfertaIndividual(int idIndividual, String lenguaje) {
 		repositorio.deleteOfertaIndividual(idIndividual, lenguaje);
 	}
+
+	@Override
+	public List<OfertaIndividual> getOfertasIndividualPorIndividual(int idIndividual) {
+		return repositorio.getOfertasIndividualPorIndividual(idIndividual);
+	}
 }

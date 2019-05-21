@@ -16,6 +16,10 @@
     body {
     	background-color: #CEFFFF;
     }
+    
+    .ancho {
+    	width: 100%;
+    }
 </style>
 <f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginIndividual}" />
 </h:head>
@@ -23,29 +27,75 @@
     <ui:include src="plantillaMenuIndividual.xhtml" />
     
     <h:form>
-    	<div class="ui-g">
-	    	<div class="ui-g-3">
-	    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
-	    		<p:inputText id="lenguaje" value="#{ofertaIndividualBean.ofertaIndividual.lenguaje}"/>
-	    	</div>
-	    	<div class="ui-g-3">
-	    		<p:outputLabel value="Nivel" for="nivel"></p:outputLabel>
-	    		<p:inputText id="nivel" value="#{ofertaIndividualBean.ofertaIndividual.nivel}"/>
-	    	</div>
-	    	<div class="ui-g-3">
-	    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
-	    		<p:inputText id="experiencia" value="#{ofertaIndividualBean.ofertaIndividual.experiencia}"/>
-	    	</div>
-	    </div>
-	    
-	    <div class="ui-g">
-	    	<div class="ui-g-12">
-	    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
-	    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaIndividualBean.ofertaIndividual.descripcion}"/>
-	    	</div>
-	    </div>
-	    
-	    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaIndividualBean.insertOfertaIndividual}" ></p:commandButton>
+    	<p:panel id="propuesta" header="Realizar Propuesta"
+					style="width: 70%; margin: 0 auto;">
+	    	<div class="ui-g">
+	    		<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+	    		<div class="ui-g-2">
+	    		</div>
+		    	<div class="ui-g-8">
+		    		<p:inputText id="lenguaje" value="#{ofertaIndividualBean.ofertaIndividual.lenguaje}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Nivel" for="nivel"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:inputText id="nivel" value="#{ofertaIndividualBean.ofertaIndividual.nivel}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-3">
+		    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-3">
+		    		<p:inputText id="experiencia" value="#{ofertaIndividualBean.ofertaIndividual.experiencia}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaIndividualBean.ofertaIndividual.descripcion}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaIndividualBean.insertOfertaIndividual}" ></p:commandButton>
+	    </p:panel>
     </h:form>
         
     <ui:include src="plantillaPie.xhtml" />

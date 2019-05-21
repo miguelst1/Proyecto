@@ -9,6 +9,7 @@ import com.proyecto.modelo.Empresa;
 
 public interface EmpresaMapper {
 
+	@Transactional
 	public void insertEmpresa(@Param("empresa") Empresa empresa);
 
 	@Transactional
@@ -24,5 +25,5 @@ public interface EmpresaMapper {
 	public List<Empresa> getEmpresas();
 
 	@Transactional
-	public void deleteEmpresa(int idEmpresa);
+	public void deleteEmpresa(@Param("idEmpresa") int idEmpresa);
 }

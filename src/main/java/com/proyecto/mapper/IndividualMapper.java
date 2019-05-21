@@ -25,5 +25,5 @@ public interface IndividualMapper {
 	public List<Individual> getIndividuales();
 
 	@Transactional
-	public void deleteIndividual(int idIndividual);
+	public void deleteIndividual(@Param("idIndividual") int idIndividual);
 }

@@ -14,5 +14,7 @@ public interface OfertaEmpresaRepositorio {
 
 	public List<OfertaEmpresa> getOfertasEmpresa();
 
+	public List<OfertaEmpresa> getOfertasEmpresaPorEmpresa(int idEmpresa);
+
 	public void deleteOfertaEmpresa(int idEmpresa, String lenguaje);
 }

@@ -23,6 +23,17 @@
        FROM ofertaindividual
 	</select>
 	
+	<select id="getOfertasIndividualPorIndividual" resultMap="ofertasIndividualRM">
+		SELECT 
+          idIndividual,
+          lenguaje,
+          nivel,
+          experiencia,
+          descripcion
+       FROM ofertaindividual
+       WHERE idIndividual = #{idIndividual}
+	</select>
+	
 	<insert id="insertOfertaIndividual">
 		INSERT INTO ofertaindividual (idIndividual, lenguaje, nivel, experiencia, descripcion) 
 		VALUES (#{idIndividual},

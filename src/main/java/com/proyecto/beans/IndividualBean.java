@@ -56,9 +56,8 @@ public class IndividualBean {
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario.get(0));
 			FacesContext.getCurrentInstance().getExternalContext().redirect("realizarPropuestaIndividual.xhtml");
 		} else {
-			FacesContext.getCurrentInstance().addMessage(null,
+			FacesContext.getCurrentInstance().addMessage("login",
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Credenciales no válidas"));
-			FacesContext.getCurrentInstance().getExternalContext().redirect("proyectoLogin.xhtml");
 		}
 	}
 

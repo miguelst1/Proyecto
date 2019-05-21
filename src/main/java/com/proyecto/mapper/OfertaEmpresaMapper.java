@@ -23,5 +23,8 @@ public interface OfertaEmpresaMapper {
 	public List<OfertaEmpresa> getOfertasEmpresa();
 
 	@Transactional
-	public void deleteOfertaEmpresa(int idEmpresa, String lenguaje);
+	public List<OfertaEmpresa> getOfertasEmpresaPorEmpresa(@Param("idEmpresa") int idEmpresa);
+
+	@Transactional
+	public void deleteOfertaEmpresa(@Param("idEmpresa") int idEmpresa, @Param("lenguaje") String lenguaje);
 }

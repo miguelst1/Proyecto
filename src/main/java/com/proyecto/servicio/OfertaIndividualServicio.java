@@ -14,5 +14,7 @@ public interface OfertaIndividualServicio {
 
 	public List<OfertaIndividual> getOfertasIndividual();
 
+	public List<OfertaIndividual> getOfertasIndividualPorIndividual(int idIndividual);
+
 	public void deleteOfertaIndividual(int idIndividual, String lenguaje);
 }
