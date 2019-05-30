@@ -18,6 +18,8 @@
     }
 </style>
 <f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaIndividualBean.obtenerLenguajesPropuestaEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaIndividualBean.obtenerNombres}" />
 </h:head>
 <h:body>
     <ui:include src="plantillaMenuEmpresa.xhtml" />
@@ -31,11 +33,11 @@
 	                gridIcon="pi pi-th-large" listIcon="pi pi-bars">
 	 
 			        <p:dataViewGridItem>
-			            <p:panel header="#{ofertas.idIndividual}" style="text-align:center">
+			            <p:panel header="#{ofertaIndividualBean.obtenerNombre(ofertas.idIndividual)}" style="text-align:center">
 			                <h:panelGrid columns="1" style="width:100%">
-			                    <h:outputText value="#{ofertas.idIndividual}" />
+			                    <h:outputText value="#{ofertaIndividualBean.obtenerNombre(ofertas.idIndividual)}" />
 			 
-			 					<p:commandButton update=":form:ofertaDetail" icon="fa fa-calendar" value="Dale" oncomplete="PF('ofertaDialog').show()">
+			 					<p:commandButton update=":form:ofertaDetail" icon="fa-plus" value="Dale" oncomplete="PF('ofertaDialog').show()">
 			 						<f:setPropertyActionListener value="#{ofertas}" target="#{ofertaIndividualBean.ofertaSeleccionada}" />
 			 					</p:commandButton>
 			                </h:panelGrid>
@@ -43,14 +45,12 @@
 			        </p:dataViewGridItem>
 			 
 			        <p:dataViewListItem>
-			            <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
-			                <p:graphicImage name="#" /> 
-			 
+			            <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
 			                <p:outputPanel>
 			                    <h:panelGrid columns="2" cellpadding="5">
 			                        <h:outputText value="Candidato:" />
-			                        <h:outputText value="#{ofertas.idIndividual}" style="font-weight: bold"/>
-			 
+			                        <h:outputText value="#{ofertaIndividualBean.obtenerNombre(ofertas.idIndividual)}" style="font-weight: bold"/>
+			                        
 			                        <h:outputText value="Lenguaje:" />
 			                        <h:outputText value="#{ofertas.lenguaje}" style="font-weight: bold"/>
 			 
@@ -60,12 +60,14 @@
 			                        <h:outputText value="Descripcion:" />
 			                        <h:outputText value="#{ofertas.descripcion}" style="font-weight: bold"/>
 			                    </h:panelGrid>
-	              				<p:commandButton update=":form:ofertaDetail" icon="fa fa-calendar" value="Dale" oncomplete="PF('ofertaDialog').show()">
-			 						<f:setPropertyActionListener value="#{ofertas}" target="#{ofertaIndividualBean.ofertaSeleccionada}" />
-			 					</p:commandButton>
-			                    <p:separator />
+			                    
+			 					<p:separator/>	 
 			                </p:outputPanel>
-			 
+
+							<p:commandButton update=":form:ofertaDetail" icon="fa fa-plus" value="Mirar Oferta" oncomplete="PF('ofertaDialog').show()" style="margin;0 auto;">
+		 						<f:setPropertyActionListener value="#{ofertas}" target="#{ofertaIndividualBean.ofertaSeleccionada}" />
+		 					</p:commandButton>		
+		 					
 			            </h:panelGrid>
 			        </p:dataViewListItem>
 			    </p:dataView>
@@ -74,7 +76,7 @@
 			        <p:outputPanel id="ofertaDetail" style="text-align:center;">
 			            <p:panelGrid  columns="2">
 			                <h:outputText value="Candidato:" />
-			                <h:outputText value="#{ofertaIndividualBean.ofertaSeleccionada.idIndividual}" />
+			                <h:outputText value="#{ofertaIndividualBean.obtenerNombre(ofertaIndividualBean.ofertaSeleccionada.idIndividual)}" />
 			 
 			                <h:outputText value="Lenguaje:" />
 			                <h:outputText value="#{ofertaIndividualBean.ofertaSeleccionada.lenguaje}" />
@@ -84,9 +86,9 @@
 			 
 			                <h:outputText value="Descripción:" />
 			                <h:outputText value="#{ofertaIndividualBean.ofertaSeleccionada.descripcion}" />
-			                
-			                
 			            </p:panelGrid>
+			            
+			            <br/>
 			            
 			            <p:commandButton value="Aceptar" action="#{ofertaIndividualBean.botonAceptar}" update="@form" process="@this" ajax="true"></p:commandButton>
 			        </p:outputPanel>

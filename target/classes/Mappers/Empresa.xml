@@ -8,7 +8,9 @@
 	          nombre,
 	          telefono,
 	          email,
-	          direccion
+	          direccion,
+	          usuario,
+	          password
 	       FROM empresa
 		   WHERE idEmpresa = #{idEmpresa}
 	</select>
@@ -51,18 +53,16 @@
 	</delete>
 	
 	<resultMap id="empresaRM" type="com.proyecto.modelo.Empresa">
-		<constructor>
-			<idArg column="idEmpresa" javaType="integer"/>
-			<arg column="nombre" javaType="java.lang.String"/>
-			<arg column="telefono" javaType="integer"/>
-			<arg column="email" javaType="java.lang.String"/>
-			<arg column="direccion" javaType="java.lang.String"/>
-		</constructor>
+		<id property="idEmpresa" column="idEmpresa" javaType="integer"/>
+		<result property="nombre" column="nombre" javaType="java.lang.String"/>
+		<result property="telefono" column="telefono" javaType="integer"/>
+		<result property="email" column="email" javaType="java.lang.String"/>
+		<result property="direccion" column="direccion" javaType="java.lang.String"/>
 	</resultMap>
 	
 	<resultMap id="credenciales" type="com.proyecto.modelo.Empresa">
-			<result property="idEmpresa" column="idEmpresa" javaType="integer"/>
-			<result property="usuario" column="usuario" javaType="java.lang.String"/>
-			<result property="password" column="password" javaType="java.lang.String"/>
+		<result property="idEmpresa" column="idEmpresa" javaType="integer"/>
+		<result property="usuario" column="usuario" javaType="java.lang.String"/>
+		<result property="password" column="password" javaType="java.lang.String"/>
 	</resultMap>
 </mapper>

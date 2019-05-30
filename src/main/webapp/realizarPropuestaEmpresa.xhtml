@@ -21,6 +21,9 @@
     	width: 100%;
     }
 </style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaEmpresaBean.limpiarOfertaEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaEmpresaBean.obtenerLenguajes}" />
 </h:head>
 <h:body>
     <ui:include src="plantillaMenuEmpresa.xhtml" />
@@ -40,7 +43,9 @@
 	    		<div class="ui-g-2">
 	    		</div>
 		    	<div class="ui-g-8">
-		    		<p:inputText id="lenguaje" value="#{ofertaEmpresaBean.ofertaEmpresa.lenguaje}" styleClass="ancho"/>
+		    		<h:selectOneMenu id="lenguaje" value="#{ofertaEmpresaBean.ofertaEmpresa.lenguaje}" styleClass="ancho">
+					    <f:selectItems value="#{ofertaEmpresaBean.lenguajes}" />
+					</h:selectOneMenu>
 		    	</div>
 		    	<div class="ui-g-2"/>
 		    </div>
@@ -71,10 +76,12 @@
 		    
 		    <div class="ui-g">
 		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-3">
+		    	<div class="ui-g-1">
 		    		<p:inputText id="experiencia" value="#{ofertaEmpresaBean.ofertaEmpresa.experiencia}" styleClass="ancho"/>
 		    	</div>
-		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-2">
+		    		<h:outputText value="Años"></h:outputText>
+		    	</div>
 		    </div>
 		    
 		    <div class="ui-g">

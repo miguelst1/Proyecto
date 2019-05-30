@@ -22,6 +22,9 @@
     }
 </style>
 <f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginIndividual}" />
+<f:event type="preRenderView" listener="#{ofertaIndividualBean.limpiarOferta}" />
+<f:event type="preRenderView" listener="#{ofertaIndividualBean.obtenerLenguajes}" />
+
 </h:head>
 <h:body>
     <ui:include src="plantillaMenuIndividual.xhtml" />
@@ -29,6 +32,7 @@
     <h:form>
     	<p:panel id="propuesta" header="Realizar Propuesta"
 					style="width: 70%; margin: 0 auto;">
+	    	<p:messages autoUpdate="true" id="messages" showDetail="true" closable="true"/>
 	    	<div class="ui-g">
 	    		<div class="ui-g-2"/>
 		    	<div class="ui-g-8">
@@ -41,7 +45,9 @@
 	    		<div class="ui-g-2">
 	    		</div>
 		    	<div class="ui-g-8">
-		    		<p:inputText id="lenguaje" value="#{ofertaIndividualBean.ofertaIndividual.lenguaje}" styleClass="ancho"/>
+		    		<h:selectOneMenu id="lenguaje" value="#{ofertaIndividualBean.ofertaIndividual.lenguaje}" styleClass="ancho">
+					    <f:selectItems value="#{ofertaIndividualBean.lenguajes}" />
+					</h:selectOneMenu>
 		    	</div>
 		    	<div class="ui-g-2"/>
 		    </div>
@@ -72,10 +78,12 @@
 		    
 		    <div class="ui-g">
 		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-3">
+		    	<div class="ui-g-1">
 		    		<p:inputText id="experiencia" value="#{ofertaIndividualBean.ofertaIndividual.experiencia}" styleClass="ancho"/>
 		    	</div>
-		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-2">
+	    			<h:outputText value="Años"></h:outputText>
+	    		</div>
 		    </div>
 		    
 		    <div class="ui-g">

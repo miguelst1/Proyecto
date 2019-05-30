@@ -13,13 +13,13 @@ public interface EmpresaMapper {
 	public void insertEmpresa(@Param("empresa") Empresa empresa);
 
 	@Transactional
-	public Empresa getEmpresa(int idEmpresa);
+	public Empresa getEmpresa(@Param("idEmpresa") int idEmpresa);
 
 	@Transactional
 	public List<Empresa> getLogin();
 
 	@Transactional
-	public void updateEmpresa(@Param("empreas") Empresa empresa);
+	public void updateEmpresa(@Param("empresa") Empresa empresa);
 
 	@Transactional
 	public List<Empresa> getEmpresas();

@@ -71,7 +71,17 @@ public class IndividualBean {
 		}
 	}
 
+	public void cargarIndividualParaModificar() {
+		Individual individualSesion = (Individual) FacesContext.getCurrentInstance().getExternalContext()
+				.getSessionMap().get("usuario");
+		this.individual = this.servicio.getIndividual(individualSesion.getIdIndividual());
+	}
+
 	public void updateIndividual() {
 		this.servicio.updateIndividual(this.individual);
+	}
+
+	public void limpiarIndividual() {
+		this.individual = new Individual();
 	}
 }

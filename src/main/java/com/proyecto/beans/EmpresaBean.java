@@ -72,7 +72,17 @@ public class EmpresaBean {
 		}
 	}
 
+	public void cargarEmpresaParaModificar() {
+		Empresa empresaSesion = (Empresa) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+				.get("empresa");
+		this.empresa = this.servicio.getEmpresa(empresaSesion.getIdEmpresa());
+	}
+
 	public void updateEmpresa() {
 		this.servicio.updateEmpresa(this.empresa);
+	}
+
+	public void limpiarEmpresa() {
+		this.empresa = new Empresa();
 	}
 }

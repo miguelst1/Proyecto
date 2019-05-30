@@ -21,7 +21,7 @@
 	
 			<p:menubar>
 				<p:submenu label="Mis Datos">
-					<p:menuitem value="Ver mi Perfil" url="#" />
+					<p:menuitem value="Ver mi Perfil" url="proyectoPerfilEmpresa.xhtml" />
 					<p:separator />
 					<p:menuitem value="Cerrar Sesión" action="#{empresaBean.cerrarSesion}"/>
 				</p:submenu>
@@ -34,11 +34,6 @@
 					<p:menuitem value="Realizar Nueva Propuesta" url="realizarPropuestaEmpresa.xhtml" />
 					<p:menuitem value="Ver mis Propuestas" url="verMisPropuestasEmpresa.xhtml" actionListener="#{ofertaEmpresaBean.getOfertasEmpresaPorId}"/>
 				</p:submenu>
-	
-				<f:facet name="options">
-					<p:inputText style="margin:1px 10px 1px 1px;" placeholder="Buscar" />
-					<p:commandButton type="button" value="Buscar" />
-				</f:facet>
 			</p:menubar>
 		</h:form>
 	</ui:composition>

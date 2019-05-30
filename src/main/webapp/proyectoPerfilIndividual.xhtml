@@ -21,6 +21,9 @@
     	width: 100%;
     }
 </style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginIndividual}" />
+<f:event type="preRenderView" listener="#{individualBean.limpiarIndividual}" />
+<f:event type="preRenderView" listener="#{individualBean.cargarIndividualParaModificar}" />
 </h:head>
 <h:body>
 	

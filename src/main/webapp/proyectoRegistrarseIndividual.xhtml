@@ -21,6 +21,7 @@
     	width: 100%;
     }
 </style>
+<f:event type="preRenderView" listener="#{individualBean.limpiarIndividual}" />
 </h:head>
 <h:body>
 	
@@ -241,7 +242,7 @@
 				<div class="ui-g-2">
 				</div>
 			    <div class="ui-g-8">
-	        		<p:inputText id="password" value="#{individualBean.individual.password}" required="true" styleClass="ancho"/>	
+	        		<p:inputText id="password" value="#{individualBean.individual.password}" type="password" required="true" styleClass="ancho"/>	
 			    </div>
 			    <div class="ui-g-2">
 				</div>

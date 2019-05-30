@@ -21,6 +21,7 @@
     	width: 100%;
     }
 </style>
+<f:event type="preRenderView" listener="#{empresaBean.limpiarEmpresa}" />
 </h:head>
 <h:body>
 	
@@ -161,7 +162,7 @@
 				<div class="ui-g-2">
 				</div>
 			    <div class="ui-g-8">
-	        		<p:inputText id="password" value="#{empresaBean.empresa.password}" required="true" styleClass="ancho"/>	
+	        		<p:inputText id="password" value="#{empresaBean.empresa.password}" type="password" required="true" styleClass="ancho"/>	
 			    </div>
 			    <div class="ui-g-2">
 				</div>

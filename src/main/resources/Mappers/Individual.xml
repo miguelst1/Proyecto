@@ -12,7 +12,9 @@
 	          ciudad,
 	          provincia,
 	          telefono,
-	          email
+	          email,
+	          usuario,
+	          password
 	       FROM individual
 		   WHERE idIndividual = #{idIndividual}
 	</select>
@@ -63,17 +65,15 @@
 	</delete>
 	
 	<resultMap id="individualRM" type="com.proyecto.modelo.Individual">
-		<constructor>
-			<idArg column="idIndividual" javaType="integer"/>
-			<arg column="nombre" javaType="java.lang.String"/>
-			<arg column="apellido1" javaType="java.lang.String"/>
-			<arg column="apellido2" javaType="java.lang.String"/>
-			<arg column="edad" javaType="integer"/>
-			<arg column="ciudad" javaType="java.lang.String"/>
-			<arg column="provincia" javaType="java.lang.String"/>
-			<arg column="telefono" javaType="integer"/>
-			<arg column="email" javaType="java.lang.String"/>
-		</constructor>
+		<id property="idIndividual" column="idIndividual" javaType="integer"/>
+		<result property="nombre" column="nombre" javaType="java.lang.String"/>
+		<result property="apellido1" column="apellido1" javaType="java.lang.String"/>
+		<result property="apellido2" column="apellido2" javaType="java.lang.String"/>
+		<result property="edad" column="edad" javaType="integer"/>
+		<result property="ciudad" column="ciudad" javaType="java.lang.String"/>
+		<result property="provincia" column="provincia" javaType="java.lang.String"/>
+		<result property="telefono" column="telefono" javaType="integer"/>
+		<result property="email" column="email" javaType="java.lang.String"/>
 	</resultMap>
 	
 	<resultMap id="credenciales" type="com.proyecto.modelo.Individual">

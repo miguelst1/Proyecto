@@ -18,6 +18,7 @@
     }
 </style>
 <f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaEmpresaBean.obtenerOfertasEmpresaPorId}" />
 </h:head>
 <h:body>
     <ui:include src="plantillaMenuEmpresa.xhtml" />
@@ -33,8 +34,6 @@
 			        <p:dataViewGridItem>
 			            <p:panel header="#{ofertas.idEmpresa}" style="text-align:center">
 			                <h:panelGrid columns="1" style="width:100%">
-			                    <p:graphicImage name="#"/> 
-			 
 			                    <h:outputText value="#{ofertas.idEmpresa}" />
 			 
 			                    <p:commandLink title="View Detail">
@@ -46,9 +45,7 @@
 			        </p:dataViewGridItem>
 			 
 			        <p:dataViewListItem>
-			            <h:panelGrid columns="3" style="width:100%" columnClasses="logo,detail">
-			                <p:graphicImage name="#" /> 
-			 
+			            <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
 			                <p:outputPanel>
 			                    <h:panelGrid columns="2" cellpadding="5">
 			                        <h:outputText value="Empresa:" />
@@ -60,16 +57,34 @@
 			                        <h:outputText value="Experiencia:" />
 			                        <h:outputText value="#{ofertas.experiencia}" style="font-weight: bold"/>
 			                    </h:panelGrid>
+			                    
 			                    <p:separator />
 			                </p:outputPanel>
-			 
-			                <p:commandLink title="View Detail">
-			                    <h:outputText styleClass="ui-icon pi pi-search" style="margin:0 auto;" />
-			                    <f:setPropertyActionListener value="#{ofertas}" target="#{ofertaEmpresaBean.filtroOfertas}" />
-			                </p:commandLink>
+			                
+			                <p:commandButton update=":form:ofertaDetail" icon="fa fa-calendar" value="Ver propuesta" oncomplete="PF('ofertaDialog').show()">
+		 						<f:setPropertyActionListener value="#{ofertas}" target="#{ofertaEmpresaBean.ofertaSeleccionada}" />
+		 					</p:commandButton>
 			            </h:panelGrid>
 			        </p:dataViewListItem>
 			    </p:dataView>
+			    
+			    <p:dialog header="Propuesta" widgetVar="ofertaDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="ofertaDetail" style="text-align:center;">
+			            <p:panelGrid  columns="2">
+			                <h:outputText value="Empresa:" />
+			                <h:outputText value="#{ofertaEmpresaBean.ofertaSeleccionada.idEmpresa}" />
+			 
+			                <h:outputText value="Sueldo:" />
+			                <h:outputText value="#{ofertaEmpresaBean.ofertaSeleccionada.sueldo}" />
+			 
+			                <h:outputText value="Experiencia:" />
+			                <h:outputText value="#{ofertaEmpresaBean.ofertaSeleccionada.experiencia}" />
+			 
+			            </p:panelGrid>
+			            
+			            <p:commandButton value="Eliminar" action="#{ofertaEmpresaBean.botonAceptar}" update="@form" process="@this" ajax="true"></p:commandButton>
+			        </p:outputPanel>
+			    </p:dialog>
     		</div>
     		<div class="ui-g-1"></div>
     	</div>

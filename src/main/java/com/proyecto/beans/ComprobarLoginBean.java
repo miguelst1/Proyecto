@@ -19,7 +19,7 @@ public class ComprobarLoginBean {
 					.get("usuario");
 
 			if (Objects.isNull(usuario)) {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("sinAcceso.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("proyectoLogin.xhtml");
 			}
 		} catch (Exception e) {
 
@@ -32,7 +32,7 @@ public class ComprobarLoginBean {
 					.get("empresa");
 
 			if (Objects.isNull(empresa)) {
-				FacesContext.getCurrentInstance().getExternalContext().redirect("sinAcceso.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("proyectoLogin.xhtml");
 			}
 		} catch (Exception e) {
 

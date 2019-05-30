@@ -13,7 +13,7 @@ public interface IndividualMapper {
 	public void insertIndividual(@Param("individual") Individual individual);
 
 	@Transactional
-	public Individual getIndividual(int idIndividual);
+	public Individual getIndividual(@Param("idIndividual") int idIndividual);
 
 	@Transactional
 	public List<Individual> getLogin();
