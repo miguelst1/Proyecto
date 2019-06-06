@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.proyecto.mapper.EmpresaMapper">
+	
+	<select id="getEmpresa" resultMap="empresaRM">
+		  SELECT 
+	          idEmpresa,
+	          nombre,
+	          telefono,
+	          email,
+	          direccion,
+	          usuario,
+	          password
+	       FROM empresa
+		   WHERE idEmpresa = #{idEmpresa}
+	</select>
+	
+	<select id="getEmpresas" resultType="string">
+		SELECT 
+          idEmpresa,
+          nombre,
+          telefono,
+          email,
+          direccion
+       FROM empresa
+	</select>
+	
+	<select id="getLogin" resultMap="credenciales">
+		SELECT
+		  idEmpresa,
+          usuario,
+          password
+       FROM empresa
+	</select>
+	
+	<insert id="insertEmpresa">
+		INSERT INTO empresa (idEmpresa, nombre, telefono, email, direccion, usuario, password) 
+		VALUES (#{empresa.idEmpresa},
+		   #{empresa.nombre},
+		   #{empresa.telefono},
+		   #{empresa.email},
+		   #{empresa.direccion},
+		   #{empresa.usuario},
+		   #{empresa.password})
+	</insert>
+	
+	<update id="updateEmpresa">
+		UPDATE empresa SET nombre = #{empresa.nombre}, telefono = #{empresa.telefono}, email = #{empresa.email}, direccion = #{empresa.direccion}, usuario = #{empresa.usuario}, password = #{empresa.password} WHERE idEmpresa = #{empresa.idEmpresa}
+	</update>
+	
+	<delete id="deleteEmpresa">
+		DELETE FROM empresa WHERE idEmpresa = #{idEmpresa}
+	</delete>
+	
+	<resultMap id="empresaRM" type="com.proyecto.modelo.Empresa">
+		<id property="idEmpresa" column="idEmpresa" javaType="integer"/>
+		<result property="nombre" column="nombre" javaType="java.lang.String"/>
+		<result property="telefono" column="telefono" javaType="integer"/>
+		<result property="email" column="email" javaType="java.lang.String"/>
+		<result property="direccion" column="direccion" javaType="java.lang.String"/>
+	</resultMap>
+	
+	<resultMap id="credenciales" type="com.proyecto.modelo.Empresa">
+		<result property="idEmpresa" column="idEmpresa" javaType="integer"/>
+		<result property="usuario" column="usuario" javaType="java.lang.String"/>
+		<result property="password" column="password" javaType="java.lang.String"/>
+	</resultMap>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.proyecto.mapper.OfertaIndividualMapper">
+	
+	<select id="getOfertaIndividual" resultMap="ofertaIndividualRM">
+		  SELECT 
+	          idIndividual,
+	          lenguaje,
+	          nivel,
+	          experiencia,
+	          descripcion
+	       FROM ofertaindividual
+		   WHERE idIndividual = #{idIndividual} AND lenguaje = #{lenguaje}
+	</select>
+	
+	<select id="getOfertasIndividual" resultMap="ofertasIndividualRM">
+		SELECT 
+          idIndividual,
+          lenguaje,
+          nivel,
+          experiencia,
+          descripcion
+       FROM ofertaindividual
+	</select>
+	
+	<select id="getOfertasIndividualPorIndividual" resultMap="ofertasIndividualRM">
+		SELECT 
+          idIndividual,
+          lenguaje,
+          nivel,
+          experiencia,
+          descripcion
+       FROM ofertaindividual
+       WHERE idIndividual = #{idIndividual}
+	</select>
+	
+	<insert id="insertOfertaIndividual">
+		INSERT INTO ofertaindividual (idIndividual, lenguaje, nivel, experiencia, descripcion) 
+		VALUES (#{idIndividual},
+		   #{ofertaIndividual.lenguaje},
+		   #{ofertaIndividual.nivel},
+		   #{ofertaIndividual.experiencia},
+		   #{ofertaIndividual.descripcion})
+	</insert>
+	
+	<update id="updateOfertaIndividual">
+		UPDATE ofertaindividual SET lenguaje = #{ofertaIndividual.lenguaje}, nivel = #{ofertaIndividual.nivel }, experiencia = #{ofertaIndividual.experiencia}, descripcion = #{ofertaIndividual.descripcion} WHERE idIndividual = #{ofertaIndividual.idIndividual} AND lenguaje = #{ofertaEmpresa.lenguaje}
+	</update>
+	
+	<delete id="deleteOfertaIndividual">
+		DELETE FROM ofertaindividual WHERE idIndividual = #{idIndividual} AND lenguaje = #{lenguaje}
+	</delete>
+	
+	<resultMap id="ofertaIndividualRM" type="com.proyecto.modelo.OfertaIndividual">
+		<constructor>
+			<idArg column="idIndividual" javaType="integer"/>
+			<idArg column="lenguaje" javaType="java.lang.String"/>
+			<arg column="nivel" javaType="java.lang.String"/>
+			<arg column="experiencia" javaType="integer"/>
+			<arg column="descripcion" javaType="java.lang.String"/>
+		</constructor>
+	</resultMap>
+	
+	<resultMap id="ofertasIndividualRM" type="com.proyecto.modelo.OfertaIndividual">
+			<id property="idIndividual" column="idIndividual" javaType="integer"/>
+			<id property="lenguaje" column="lenguaje" javaType="java.lang.String"/>
+			<result property="nivel" column="nivel" javaType="java.lang.String"/>
+			<result property="experiencia" column="experiencia" javaType="integer"/>
+			<result property="descripcion" column="descripcion" javaType="java.lang.String"/>
+	</resultMap>
+</mapper>

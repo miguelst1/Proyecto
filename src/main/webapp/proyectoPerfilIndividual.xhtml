@@ -14,7 +14,10 @@
     }
     
     body {
-    	background-color: #CEFFFF;
+    	background-image: url('fondo.jpg');
+    	background-size: cover;
+    	min-height: 100%;
+    	position: relative;
     }
     
     .ancho {
@@ -30,74 +33,79 @@
     <ui:include src="plantillaMenuIndividual.xhtml" />
     
     <h:form>
-    	<p:panel id="perfil" header="Modificar Cuenta"
-					style="width: 70%; margin: 0 auto;">
-			<div class="ui-g">
-		    	<div class="ui-g-3">
-		    		<p:outputLabel value="Nombre" for="nombre"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-3">
-		    		<p:outputLabel value="Primer Apellido" for="apellido1"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-3">
-		    		<p:outputLabel value="Segundo Apellido" for="apellido2"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-2">
-		    		<p:outputLabel value="Edad" for="edad"></p:outputLabel>
-		    	</div>
-		    </div>
-	    	<div class="ui-g">
-		    	<div class="ui-g-3">
-		    		<p:inputText id="nombre" value="#{individualBean.individual.nombre}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-3">
-		    		<p:inputText id="apellido1" value="#{individualBean.individual.apellido1}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-3">
-		    		<p:inputText id="apellido2" value="#{individualBean.individual.apellido2}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-2">
-		    		<p:inputText id="edad" value="#{individualBean.individual.edad}" styleClass="ancho"/>
-		    	</div>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-5">
-		    		<p:outputLabel value="Ciudad" for="ciudad"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-4">
-		    		<p:outputLabel value="Provincia" for="provincia"></p:outputLabel>
-		    	</div>
-		    </div>
-	    	<div class="ui-g">
-		    	<div class="ui-g-5">
-		    		<p:inputText id="ciudad" value="#{individualBean.individual.ciudad}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-4">
-		    		<p:inputText id="provincia" value="#{individualBean.individual.provincia}" styleClass="ancho"/>
-		    	</div>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-3">
-		    		<p:outputLabel value="Teléfono" for="telefono"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-5">
-		    		<p:outputLabel value="Email" for="email"></p:outputLabel>
-		    	</div>
-		    </div>
-	    	<div class="ui-g">
-		    	<div class="ui-g-3">
-		    		<p:inputText id="telefono" value="#{individualBean.individual.telefono}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-5">
-		    		<p:inputText id="email" value="#{individualBean.individual.email}" styleClass="ancho"/>
-		    	</div>
-		    </div>
-		    
-		    <p:commandButton id="modificar" name="modificar" value="Modificar" action="#{individualBean.updateIndividual}" ></p:commandButton>
-		</p:panel>
-	    
+    	<div class="ui-g">
+    		<div class="ui-g-1"></div>
+    		<div class="ui-g-10">
+		    	<p:panel id="perfil" header="Modificar Cuenta"
+							style="margin: 0 auto;">
+					<div class="ui-g">
+				    	<div class="ui-g-3">
+				    		<p:outputLabel value="Nombre" for="nombre"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-3">
+				    		<p:outputLabel value="Primer Apellido" for="apellido1"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-3">
+				    		<p:outputLabel value="Segundo Apellido" for="apellido2"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-2">
+				    		<p:outputLabel value="Edad" for="edad"></p:outputLabel>
+				    	</div>
+				    </div>
+			    	<div class="ui-g">
+				    	<div class="ui-g-3">
+				    		<p:inputText id="nombre" value="#{individualBean.individual.nombre}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-3">
+				    		<p:inputText id="apellido1" value="#{individualBean.individual.apellido1}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-3">
+				    		<p:inputText id="apellido2" value="#{individualBean.individual.apellido2}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-2">
+				    		<p:inputText id="edad" value="#{individualBean.individual.edad}" styleClass="ancho"/>
+				    	</div>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-5">
+				    		<p:outputLabel value="Ciudad" for="ciudad"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-4">
+				    		<p:outputLabel value="Provincia" for="provincia"></p:outputLabel>
+				    	</div>
+				    </div>
+			    	<div class="ui-g">
+				    	<div class="ui-g-5">
+				    		<p:inputText id="ciudad" value="#{individualBean.individual.ciudad}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-4">
+				    		<p:inputText id="provincia" value="#{individualBean.individual.provincia}" styleClass="ancho"/>
+				    	</div>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-3">
+				    		<p:outputLabel value="Teléfono" for="telefono"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-5">
+				    		<p:outputLabel value="Email" for="email"></p:outputLabel>
+				    	</div>
+				    </div>
+			    	<div class="ui-g">
+				    	<div class="ui-g-3">
+				    		<p:inputText id="telefono" value="#{individualBean.individual.telefono}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-5">
+				    		<p:inputText id="email" value="#{individualBean.individual.email}" styleClass="ancho"/>
+				    	</div>
+				    </div>
+				    
+				    <p:commandButton id="modificar" name="modificar" value="Modificar" action="#{individualBean.updateIndividual}" ></p:commandButton>
+				</p:panel>
+			</div>
+	    	<div class="ui-g-1"></div>
+	    </div>
     </h:form>
         
     <ui:include src="plantillaPie.xhtml" />

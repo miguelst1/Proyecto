@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+</style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaEmpresaBean.obtenerOfertasEmpresaPorId}" />
+</h:head>
+<h:body>
+    <ui:include src="plantillaMenuEmpresa.xhtml" />
+    
+    <h:form id="form">
+    	<div class="ui-g">
+    		<div class="ui-g-1"></div>
+    		<div class="ui-g-10">
+    			<p:dataView var="ofertas" value="#{ofertaEmpresaBean.ofertasEmpresaPorId}" rows="10" paginator="true" rowsPerPageTemplate="6,12,16"
+	                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+	                gridIcon="pi pi-th-large" listIcon="pi pi-bars">
+	 
+			        <p:dataViewGridItem>
+			            <p:panel header="#{ofertas.idEmpresa}" style="text-align:center">
+			                <h:panelGrid columns="1" style="width:100%">
+			                    <h:outputText value="#{ofertas.idEmpresa}" />
+			 
+			                    <p:commandLink title="View Detail">
+			                        <h:outputText styleClass="ui-icon-trash" style="margin:0 auto;" />
+			                        <f:setPropertyActionListener value="#{ofertas}" target="#{ofertaEmpresaBean.filtroOfertas}" />
+			                    </p:commandLink>
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:dataViewGridItem>
+			 
+			        <p:dataViewListItem>
+			            <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+			                <p:outputPanel>
+			                    <h:panelGrid columns="2" cellpadding="5">
+			                        <h:outputText value="Empresa:" />
+			                        <h:outputText value="#{ofertas.idEmpresa}" style="font-weight: bold"/>
+			 
+			                        <h:outputText value="Sueldo:" />
+			                        <h:outputText value="#{ofertas.sueldo}" style="font-weight: bold"/>
+			 
+			                        <h:outputText value="Experiencia:" />
+			                        <h:outputText value="#{ofertas.experiencia}" style="font-weight: bold"/>
+			                    </h:panelGrid>
+			                    
+			                    <p:separator />
+			                </p:outputPanel>
+			                
+			                <p:commandButton update=":form:ofertaDetail" icon="fa fa-calendar" value="Ver propuesta" oncomplete="PF('ofertaDialog').show()">
+		 						<f:setPropertyActionListener value="#{ofertas}" target="#{ofertaEmpresaBean.ofertaSeleccionada}" />
+		 					</p:commandButton>
+			            </h:panelGrid>
+			        </p:dataViewListItem>
+			    </p:dataView>
+			    
+			    <p:dialog header="Propuesta" widgetVar="ofertaDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="ofertaDetail" style="text-align:center;">
+			            <p:panelGrid  columns="2">
+			                <h:outputText value="Empresa:" />
+			                <h:outputText value="#{ofertaEmpresaBean.ofertaSeleccionada.idEmpresa}" />
+			 
+			                <h:outputText value="Sueldo:" />
+			                <h:outputText value="#{ofertaEmpresaBean.ofertaSeleccionada.sueldo}" />
+			 
+			                <h:outputText value="Experiencia:" />
+			                <h:outputText value="#{ofertaEmpresaBean.ofertaSeleccionada.experiencia}" />
+			 
+			            </p:panelGrid>
+			            
+			            <p:commandButton value="Eliminar" action="#{ofertaEmpresaBean.botonAceptar}" update="@form" process="@this" ajax="true"></p:commandButton>
+			        </p:outputPanel>
+			    </p:dialog>
+    		</div>
+    		<div class="ui-g-1"></div>
+    	</div>
+	</h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+</h:body>
+</html>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+    
+    .ancho {
+    	width: 100%;
+    }
+</style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaEmpresaBean.limpiarOfertaEmpresa}" />
+<f:event type="preRenderView" listener="#{ofertaEmpresaBean.obtenerLenguajes}" />
+</h:head>
+<h:body>
+    <ui:include src="plantillaMenuEmpresa.xhtml" />
+    
+    <h:form>
+    	<p:panel id="propuesta" header="Realizar Propuesta"
+					style="width: 70%; margin: 0 auto;">
+	    	<div class="ui-g">
+	    		<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+	    		<div class="ui-g-2">
+	    		</div>
+		    	<div class="ui-g-8">
+		    		<h:selectOneMenu id="lenguaje" value="#{ofertaEmpresaBean.ofertaEmpresa.lenguaje}" styleClass="ancho">
+					    <f:selectItems value="#{ofertaEmpresaBean.lenguajes}" />
+					</h:selectOneMenu>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Sueldo" for="sueldo"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:inputText id="sueldo" value="#{ofertaEmpresaBean.ofertaEmpresa.sueldo}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-3">
+		    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-1">
+		    		<p:inputText id="experiencia" value="#{ofertaEmpresaBean.ofertaEmpresa.experiencia}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2">
+		    		<h:outputText value="Años"></h:outputText>
+		    	</div>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Horario" for="horario"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:inputText id="horario" value="#{ofertaEmpresaBean.ofertaEmpresa.horario}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-2"/>
+		    	<div class="ui-g-8">
+		    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaEmpresaBean.ofertaEmpresa.descripcion}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2"/>
+		    </div>
+		    
+		    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaEmpresaBean.insertOfertaEmpresa}" ></p:commandButton>
+	    </p:panel>
+    </h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+</h:body>
+</html>

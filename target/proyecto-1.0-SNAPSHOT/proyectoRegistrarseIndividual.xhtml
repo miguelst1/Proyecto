@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+    
+    .ancho {
+    	width: 100%;
+    }
+</style>
+<f:event type="preRenderView" listener="#{individualBean.limpiarIndividual}" />
+</h:head>
+<h:body>
+	
+    <h:form id="loginForm">
+        <p:panel id="registrarse" header="Crear Cuenta"
+					style="width: 600px; margin: 0 auto;">
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h3>Datos personales</h3>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>					
+					
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="nombre" value="Nombre: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="nombre" value="#{individualBean.individual.nombre}" required="true" styleClass="ancho"/>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="apellido1" value="Primer Apellido: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="apellido1" value="#{individualBean.individual.apellido1}" required="true" styleClass="ancho"/>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="apellido2" value="Segundo Apellido: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="apellido2" value="#{individualBean.individual.apellido2}" required="true" styleClass="ancho"/>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="edad" value="Edad: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="edad" value="#{individualBean.individual.edad}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="ciudad" value="Ciudad: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="ciudad" value="#{individualBean.individual.ciudad}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="provincia" value="Provincia: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="provincia" value="#{individualBean.individual.provincia}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="telefono" value="Telefono: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="telefono" value="#{individualBean.individual.telefono}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="email" value="Email: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="email" value="#{individualBean.individual.email}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h3>Datos de la cuenta</h3>
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="usuario" value="Usuario: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="usuario" value="#{individualBean.individual.usuario}" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+			    	<h:outputLabel for="password" value="Contraseña: *" />
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<div class="ui-g">
+				<div class="ui-g-2">
+				</div>
+			    <div class="ui-g-8">
+	        		<p:inputText id="password" value="#{individualBean.individual.password}" type="password" required="true" styleClass="ancho"/>	
+			    </div>
+			    <div class="ui-g-2">
+				</div>
+			</div>
+			
+			<h:panelGrid columns="1" cellpadding="10" width="100%" >
+				<p:commandButton id="loginButton" action="#{individualBean.registrarse}"
+								value="Crear Cuenta" update="loginForm" ajax="true" style="float: right;">
+				</p:commandButton>			
+			</h:panelGrid>
+	        
+	 	</p:panel>
+	 
+	</h:form>
+    
+</h:body>
+</html>

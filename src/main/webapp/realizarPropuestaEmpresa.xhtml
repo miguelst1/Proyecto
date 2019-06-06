@@ -14,7 +14,10 @@
     }
     
     body {
-    	background-color: #CEFFFF;
+    	background-image: url('fondo.jpg');
+    	background-size: cover;
+    	min-height: 100%;
+    	position: relative;
     }
     
     .ancho {
@@ -29,95 +32,101 @@
     <ui:include src="plantillaMenuEmpresa.xhtml" />
     
     <h:form>
-    	<p:panel id="propuesta" header="Realizar Propuesta"
-					style="width: 70%; margin: 0 auto;">
-	    	<div class="ui-g">
-	    		<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-	    		<div class="ui-g-2">
-	    		</div>
-		    	<div class="ui-g-8">
-		    		<h:selectOneMenu id="lenguaje" value="#{ofertaEmpresaBean.ofertaEmpresa.lenguaje}" styleClass="ancho">
-					    <f:selectItems value="#{ofertaEmpresaBean.lenguajes}" />
-					</h:selectOneMenu>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:outputLabel value="Sueldo" for="sueldo"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:inputText id="sueldo" value="#{ofertaEmpresaBean.ofertaEmpresa.sueldo}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-3">
-		    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-1">
-		    		<p:inputText id="experiencia" value="#{ofertaEmpresaBean.ofertaEmpresa.experiencia}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-2">
-		    		<h:outputText value="Años"></h:outputText>
-		    	</div>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:outputLabel value="Horario" for="horario"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:inputText id="horario" value="#{ofertaEmpresaBean.ofertaEmpresa.horario}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <div class="ui-g">
-		    	<div class="ui-g-2"/>
-		    	<div class="ui-g-8">
-		    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaEmpresaBean.ofertaEmpresa.descripcion}" styleClass="ancho"/>
-		    	</div>
-		    	<div class="ui-g-2"/>
-		    </div>
-		    
-		    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaEmpresaBean.insertOfertaEmpresa}" ></p:commandButton>
-	    </p:panel>
+    	<div class="ui-g">
+    		<div class="ui-g-3"></div>
+    		<div class="ui-g-6">
+		    	<p:panel id="propuesta" header="Realizar Oferta"
+							style="margin: 0 auto;">
+			    	<div class="ui-g">
+			    		<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:outputLabel value="Lenguaje" for="lenguaje"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+			    		<div class="ui-g-2">
+			    		</div>
+				    	<div class="ui-g-8">
+				    		<h:selectOneMenu id="lenguaje" value="#{ofertaEmpresaBean.ofertaEmpresa.lenguaje}" styleClass="ancho">
+							    <f:selectItems value="#{ofertaEmpresaBean.lenguajes}" />
+							</h:selectOneMenu>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:outputLabel value="Sueldo" for="sueldo"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:inputText id="sueldo" value="#{ofertaEmpresaBean.ofertaEmpresa.sueldo}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-3">
+				    		<p:outputLabel value="Experiencia" for="experiencia"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-1">
+				    		<p:inputText id="experiencia" value="#{ofertaEmpresaBean.ofertaEmpresa.experiencia}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-2">
+				    		<h:outputText value="Años"></h:outputText>
+				    	</div>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:outputLabel value="Horario" for="horario"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:inputText id="horario" value="#{ofertaEmpresaBean.ofertaEmpresa.horario}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:outputLabel value="Descripción" for="descripcion"></p:outputLabel>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <div class="ui-g">
+				    	<div class="ui-g-2"/>
+				    	<div class="ui-g-8">
+				    		<p:inputTextarea id="descripcion" rows="6" cols="33" value="#{ofertaEmpresaBean.ofertaEmpresa.descripcion}" styleClass="ancho"/>
+				    	</div>
+				    	<div class="ui-g-2"/>
+				    </div>
+				    
+				    <p:commandButton id="enviar" name="enviar" value="Publicar" action="#{ofertaEmpresaBean.insertOfertaEmpresa}" ></p:commandButton>
+			    </p:panel>
+			 </div>
+			 <div class="ui-g-3"></div>
+		</div>
     </h:form>
         
     <ui:include src="plantillaPie.xhtml" />

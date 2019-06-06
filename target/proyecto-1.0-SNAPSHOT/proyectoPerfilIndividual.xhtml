@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+    
+    .ancho {
+    	width: 100%;
+    }
+</style>
+<f:event type="preRenderView" listener="#{comprobarLoginBean.verificarLoginIndividual}" />
+<f:event type="preRenderView" listener="#{individualBean.limpiarIndividual}" />
+<f:event type="preRenderView" listener="#{individualBean.cargarIndividualParaModificar}" />
+</h:head>
+<h:body>
+	
+    <ui:include src="plantillaMenuIndividual.xhtml" />
+    
+    <h:form>
+    	<p:panel id="perfil" header="Modificar Cuenta"
+					style="width: 70%; margin: 0 auto;">
+			<div class="ui-g">
+		    	<div class="ui-g-3">
+		    		<p:outputLabel value="Nombre" for="nombre"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-3">
+		    		<p:outputLabel value="Primer Apellido" for="apellido1"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-3">
+		    		<p:outputLabel value="Segundo Apellido" for="apellido2"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-2">
+		    		<p:outputLabel value="Edad" for="edad"></p:outputLabel>
+		    	</div>
+		    </div>
+	    	<div class="ui-g">
+		    	<div class="ui-g-3">
+		    		<p:inputText id="nombre" value="#{individualBean.individual.nombre}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-3">
+		    		<p:inputText id="apellido1" value="#{individualBean.individual.apellido1}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-3">
+		    		<p:inputText id="apellido2" value="#{individualBean.individual.apellido2}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-2">
+		    		<p:inputText id="edad" value="#{individualBean.individual.edad}" styleClass="ancho"/>
+		    	</div>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-5">
+		    		<p:outputLabel value="Ciudad" for="ciudad"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-4">
+		    		<p:outputLabel value="Provincia" for="provincia"></p:outputLabel>
+		    	</div>
+		    </div>
+	    	<div class="ui-g">
+		    	<div class="ui-g-5">
+		    		<p:inputText id="ciudad" value="#{individualBean.individual.ciudad}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-4">
+		    		<p:inputText id="provincia" value="#{individualBean.individual.provincia}" styleClass="ancho"/>
+		    	</div>
+		    </div>
+		    
+		    <div class="ui-g">
+		    	<div class="ui-g-3">
+		    		<p:outputLabel value="Teléfono" for="telefono"></p:outputLabel>
+		    	</div>
+		    	<div class="ui-g-5">
+		    		<p:outputLabel value="Email" for="email"></p:outputLabel>
+		    	</div>
+		    </div>
+	    	<div class="ui-g">
+		    	<div class="ui-g-3">
+		    		<p:inputText id="telefono" value="#{individualBean.individual.telefono}" styleClass="ancho"/>
+		    	</div>
+		    	<div class="ui-g-5">
+		    		<p:inputText id="email" value="#{individualBean.individual.email}" styleClass="ancho"/>
+		    	</div>
+		    </div>
+		    
+		    <p:commandButton id="modificar" name="modificar" value="Modificar" action="#{individualBean.updateIndividual}" ></p:commandButton>
+		</p:panel>
+	    
+    </h:form>
+        
+    <ui:include src="plantillaPie.xhtml" />
+    
+</h:body>
+</html>

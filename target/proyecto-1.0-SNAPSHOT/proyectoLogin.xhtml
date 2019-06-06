@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style type="text/css">
+    .ui-datatable-header {
+        height: 35px
+    }
+    
+    body {
+    	background-color: #CEFFFF;
+    }
+</style>
+</h:head>
+<h:body>
+	
+		<p:growl id="msg" showDetail="true" life="4000" />
+		
+		<p:tabView style="width: 50%; margin: 0 auto; margin-top: 3%;">
+			<p:messages autoUpdate="true" for="login" id="messages" showDetail="true" closable="true"/>
+        	<p:tab title="Usuario">
+        		<h:form id="loginForm">
+	        		<p:panel id="loginPnl" header="Login Usuario"
+						style="width: 350px; margin: 0 auto;">
+						<h:panelGrid id="loginPanel" columns="2" cellpadding="5">
+							<h:outputText value="Usuario" />
+							<p:inputText id="usuario" value="#{individualBean.individual.usuario}"></p:inputText>
+							<p:spacer /><p:spacer />	
+							<h:outputText value="Password" />
+							<p:password id="password" value="#{individualBean.individual.password}"
+								feedback="false"></p:password>
+						</h:panelGrid>
+						<h:panelGrid columns="1" cellpadding="10" width="100%">
+							<p:commandButton id="loginButton" action="#{individualBean.comprobarLogin}"
+								value="Login" update="loginForm" ajax="true" style="float: right;">
+							</p:commandButton>
+						</h:panelGrid>
+						<p:messages autoUpdate="true" for="login" id="messages" showDetail="true" closable="true"/>
+						<h:panelGrid columns="1" cellpadding="10" width="100%">
+							<h:outputText value="¿Todavía no tienes cuenta?" />
+							<p:link value="Registrate" outcome="proyectoRegistrarseIndividual.xhtml"/>
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+        	</p:tab>
+        	<p:tab title="Empresa">
+        		<h:form id="loginForm2">
+	        		<p:panel id="loginPnl2" header="Login Empresa"
+						style="width: 350px; margin: 0 auto;">
+						<h:panelGrid id="loginPanel2" columns="2" cellpadding="5">
+							<h:outputText value="Usuario" />
+							<p:inputText id="usuario2" value="#{empresaBean.empresa.usuario}"></p:inputText>
+							<p:spacer /><p:spacer />	
+							<h:outputText value="Password" />
+							<p:password id="password2" value="#{empresaBean.empresa.password}"
+								feedback="false"></p:password>
+						</h:panelGrid>
+						<h:panelGrid columns="1" cellpadding="10" width="100%">
+							<p:commandButton id="loginButton2" action="#{empresaBean.comprobarLogin}"
+								value="Login" update="loginForm2" ajax="true" style="float: right;">
+							</p:commandButton>
+						</h:panelGrid>
+						<h:panelGrid columns="1" cellpadding="10" width="100%">
+							<h:outputText value="¿Todavía no tienes cuenta?" />
+							<p:link value="Registrate" outcome="proyectoRegistrarseEmpresa.xhtml"/>
+						</h:panelGrid>
+					</p:panel>
+				</h:form>
+        	</p:tab>
+        </p:tabView>
+		
+</h:body>
+</html>
