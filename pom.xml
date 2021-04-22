@@ -16,7 +16,7 @@
 		<!-- junit -->
 		<junit.version>4.12</junit.version>
 		<!-- mybatis -->
-		<mybatis.version>3.4.2</mybatis.version>
+		<mybatis.version>3.5.6</mybatis.version>
 		<jsf2.version>2.2.14</jsf2.version>
 		<primefaces.version>7.0</primefaces.version>
 	</properties>
@@ -278,7 +278,7 @@
 		 <dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
-		    <version>3.4.6</version>
+		    <version>3.5.6</version>
 		</dependency>
 		
 		<dependency>
